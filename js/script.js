@@ -1,4 +1,67 @@
 window.onload = function () {
+  //modal
+  let body = document.querySelector("body");
+  let modal = document.querySelector(".modal");
+  modal.addEventListener("click", function () {
+    modal.style.display = "none";
+    body.classList.add("active");
+  });
+
+  // 스크롤 기능
+  // 스크롤바의 상단위치
+  let scy = 0;
+  let scActive = 50;
+  scy = window.document.documentElement.scrollTop;
+
+  let header = document.querySelector(".header");
+  let logoW = document.querySelector(".logo-w");
+  let logoB = document.querySelector(".logo-b");
+
+  header.addEventListener("mouseenter", function () {
+    header.classList.add("header-active");
+    logoW.style.display = "none";
+    logoB.style.display = "block";
+  });
+  header.addEventListener("mouseleave", function () {
+    if (scy < scActive) {
+      header.classList.remove("header-active");
+      logoW.style.display = "block";
+      logoB.style.display = "none";
+    }
+  });
+
+  // 새로고침 시
+  if (scy > scActive) {
+    header.classList.add("header-active");
+    logoW.style.display = "none";
+    logoB.style.display = "block";
+  }
+
+  window.addEventListener("scroll", function () {
+    scy = window.document.documentElement.scrollTop;
+    // console.log("스크롤 : " + scy);
+    if (scy > scActive) {
+      header.classList.add("header-active");
+      logoW.style.display = "none";
+      logoB.style.display = "block";
+    } else {
+      header.classList.remove("header-active");
+      logoW.style.display = "block";
+      logoB.style.display = "none";
+    }
+  });
+
+  // 펼침 언어 기능
+  const langWord = document.querySelector(".language-word");
+  const language = document.querySelector(".language");
+  const languageLi = document.querySelector(".language li");
+  setTimeout(function () {
+    languageLi.style.transition = "all 0.2s";
+  }, 500);
+
+  langWord.addEventListener("click", function () {
+    language.classList.toggle("language-box-active");
+  });
   // 메뉴기능
   const nav = document.querySelector(".nav");
   const btMenu = document.querySelector(".bt-menu");
