@@ -65,8 +65,10 @@ body.active {
 }
 .modal-box {
   width: 500px;
-  height: 350px;
+  height: 270px;
   background: #fff;
+  background-image: url(../images/papertexure.jpg);
+  background-size: cover;
   border-radius: 20px;
 }
 .modal-box > p {
@@ -75,7 +77,11 @@ body.active {
   padding-top: 50px;
   font-size: 20px;
   font-weight: 400;
+  line-height: 2;
   letter-spacing: -0.9px;
+}
+.modal-box > p > .half {
+  background: linear-gradient(to top, #ffe400 50%, transparent 50%);
 }
 /* 공통요소 */
 .wrap {
